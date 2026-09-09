@@ -1,1 +1,324 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jhon Carlos Porco Gonzales — Desarrollador de sistemas web</title>
+<meta name="description" content="Construyo sistemas web para negocios que necesitan digitalizarse sin gastar de más.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDE8DC;
+    --paper-2:#E4DECE;
+    --ink:#201D17;
+    --ink-soft:#5B564A;
+    --amber:#C98A2C;
+    --teal:#1F6F5C;
+    --line:#C9C2AF;
+    --card:#F5F2E8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.tag,.brand{font-family:'Space Grotesk',sans-serif;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Header ---------- */
+  header{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:28px 0;border-bottom:1px solid var(--line);
+  }
+  .brand{font-weight:700;font-size:1.15rem;letter-spacing:-0.01em;}
+  nav a{
+    margin-left:28px;text-decoration:none;font-size:.95rem;color:var(--ink-soft);
+    border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .15s;
+  }
+  nav a:hover{border-color:var(--amber);color:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:56px;
+    padding:88px 0 96px;align-items:start;
+  }
+  .kicker{
+    display:inline-block;font-size:.8rem;color:var(--teal);font-weight:600;
+    letter-spacing:.02em;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,4.4vw,3.4rem);
+    font-weight:700;line-height:1.08;letter-spacing:-0.015em;
+    max-width:14ch;
+  }
+  .hero p.lead{
+    margin-top:22px;font-size:1.15rem;color:var(--ink-soft);max-width:46ch;
+  }
+  .cta-row{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:13px 24px;border-radius:3px;
+    font-weight:600;font-size:.95rem;text-decoration:none;
+    border:1px solid var(--ink);
+  }
+  .btn-primary{background:var(--ink);color:var(--paper);}
+  .btn-primary:hover{background:var(--teal);border-color:var(--teal);}
+  .btn-ghost{background:transparent;color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber);}
+
+  /* ---------- Stock tag card (signature element) ---------- */
+  .stock-tag{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px 24px;
+    position:relative;
+    transform:rotate(1.2deg);
+    box-shadow:0 1px 0 var(--line);
+  }
+  .stock-tag::before{
+    content:"";
+    position:absolute;top:18px;left:-9px;
+    width:16px;height:16px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:50%;
+  }
+  .stock-tag .sku{
+    font-size:.75rem;color:var(--ink-soft);letter-spacing:.03em;
+  }
+  .stock-tag h3{
+    font-size:1.25rem;margin-top:6px;font-weight:600;
+  }
+  .stock-tag .row{
+    display:flex;justify-content:space-between;
+    margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);
+    font-size:.9rem;
+  }
+  .stock-tag .row + .row{border-top:1px dashed var(--line);margin-top:10px;padding-top:10px;}
+  .status-dot{
+    display:inline-block;width:8px;height:8px;border-radius:50%;
+    background:var(--teal);margin-right:7px;
+  }
+
+  /* ---------- Section shared ---------- */
+  section{padding:72px 0;border-top:1px solid var(--line);}
+  .section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;flex-wrap:wrap;gap:10px;}
+  .section-head h2{font-size:1.7rem;font-weight:700;letter-spacing:-0.01em;}
+  .section-num{font-size:.85rem;color:var(--ink-soft);}
+
+  /* ---------- Projects as catalog cards ---------- */
+  .project-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1.4fr;
+    overflow:hidden;
+    margin-bottom:22px;
+  }
+  .project-media{
+    background:
+      linear-gradient(135deg, rgba(31,111,92,.10), rgba(201,138,44,.14)),
+      var(--paper-2);
+    min-height:220px;
+    display:flex;align-items:center;justify-content:center;
+    border-right:1px solid var(--line);
+  }
+  .project-media span{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:.8rem;color:var(--ink-soft);
+  }
+  .project-body{padding:28px 30px;}
+  .status-stamp{
+    display:inline-flex;align-items:center;
+    font-size:.72rem;font-weight:600;letter-spacing:.03em;
+    padding:4px 10px;border-radius:20px;
+    background:rgba(31,111,92,.12);color:var(--teal);
+    border:1px solid rgba(31,111,92,.3);
+  }
+  .project-body h3{font-size:1.3rem;margin-top:12px;font-weight:600;}
+  .project-body p{color:var(--ink-soft);margin-top:10px;font-size:.98rem;max-width:56ch;}
+  .stack-list{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;}
+  .stack-list span{
+    font-size:.78rem;color:var(--ink-soft);
+    border:1px solid var(--line);border-radius:3px;padding:3px 9px;
+  }
+  .project-links{margin-top:18px;display:flex;gap:18px;}
+  .project-links a{
+    font-size:.9rem;font-weight:600;text-decoration:none;
+    border-bottom:1px solid var(--amber);color:var(--ink);
+  }
+
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;padding:56px 0 64px;}
+    .project-card{grid-template-columns:1fr;}
+    .project-media{border-right:none;border-bottom:1px solid var(--line);min-height:140px;}
+    nav a{margin-left:16px;}
+  }
+
+  /* ---------- About: spec sheet ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .about-grid p{color:var(--ink-soft);font-size:1.02rem;max-width:52ch;}
+  .spec-sheet{border:1px solid var(--line);border-radius:4px;background:var(--card);}
+  .spec-row{
+    display:flex;justify-content:space-between;
+    padding:14px 20px;border-bottom:1px solid var(--line);font-size:.92rem;
+  }
+  .spec-row:last-child{border-bottom:none;}
+  .spec-row .k{color:var(--ink-soft);}
+  .spec-row .v{font-weight:600;text-align:right;}
+  @media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Contact ---------- */
+  .contact{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;
+  }
+  .contact h2{font-size:1.9rem;max-width:16ch;font-weight:700;letter-spacing:-0.01em;}
+  .contact-links{display:flex;flex-direction:column;gap:10px;align-items:flex-start;}
+  .contact-links a{text-decoration:none;font-size:1.02rem;font-weight:500;}
+  .contact-links a:hover{color:var(--teal);}
+
+  footer{
+    border-top:1px solid var(--line);padding:26px 0;
+    font-size:.85rem;color:var(--ink-soft);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">Jhon Carlos</div>
+    <nav>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none;">
+    <div>
+      <span class="kicker">Cochabamba, Bolivia — disponible remoto</span>
+      <h1>Construyo sistemas web para negocios que necesitan digitalizarse sin gastar de más.</h1>
+      <p class="lead">Desarrollador enfocado en catálogos, inventario y herramientas internas para pequeños y medianos negocios — del diagnóstico del problema al sistema en producción.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-ghost" href="#contacto">Escríbeme</a>
+      </div>
+    </div>
+
+    <div class="stock-tag">
+      <div class="sku">FICHA · DEV-001</div>
+      <h3>Jhon Carlos Porco Gonzales</h3>
+      <div class="row"><span><span class="status-dot"></span>Disponibilidad</span><strong>Abierto a proyectos</strong></div>
+      <div class="row"><span>Stack principal</span><strong>Next.js · Supabase</strong></div>
+      <div class="row"><span>Enfoque</span><strong>Sistemas para PyMEs</strong></div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <div class="section-head">
+      <h2>Proyectos</h2>
+      <span class="section-num">01</span>
+    </div>
+
+    <div class="project-card">
+      <div class="project-media">
+        <img src="images/catalogo-b2b.jpg" alt="Sistema de catálogo B2B" style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.outerHTML='<span>[Captura del catálogo aquí]</span>'">
+      </div>
+      <div class="project-body">
+        <span class="status-stamp">● Entregado</span>
+        <h3>Sistema de catálogo B2B para venta a clientes predefinidos</h3>
+        <p>Un negocio que vende a través de vendedores necesitaba mostrarle a su cartera fija de clientes el stock y las ofertas actualizadas, sin depender de listas de WhatsApp desactualizadas. Se priorizó una Fase 1 (MVP) ajustada al presupuesto real del cliente, con la base preparada para crecer sin rehacer nada.</p>
+        <div class="stack-list">
+          <span>Next.js</span><span>Supabase</span><span>Cloudflare Pages</span><span>PostgreSQL</span>
+        </div>
+        <div class="project-links">
+          <a href="#" target="_blank">Ver proyecto en vivo</a>
+          <a href="#" target="_blank">Ver caso de estudio</a>
+          <a href="https://github.com/jhondssss" target="_blank">Ver código en GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copia este bloque .project-card para agregar más proyectos -->
+
+    <div class="project-card">
+      <div class="project-media">
+        <img src="images/raiz-yoga.jpg" alt="Sistema de reservas para estudio de yoga" style="width:100%;height:100%;object-fit:cover;"
+             onerror="this.outerHTML='<span>[Captura del sistema de reservas aquí]</span>'">
+      </div>
+      <div class="project-body">
+        <span class="status-stamp">● Demo</span>
+        <h3>Sistema de reservas para estudio de yoga</h3>
+        <p>Reservas de clases con cupos limitados en tiempo real: horario semanal, disponibilidad por clase, confirmación instantánea y panel de administrador con el listado de reservas del día.</p>
+        <div class="stack-list">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span>
+        </div>
+        <div class="project-links">
+          <a href="https://jhondssss.github.io/Raiz-Yoga-Reservas/" target="_blank">Ver proyecto en vivo</a>
+          <a href="https://github.com/jhondssss/Raiz-Yoga-Reservas" target="_blank">Ver código en GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <div class="section-head">
+      <h2>Sobre mí</h2>
+      <span class="section-num">02</span>
+    </div>
+    <div class="about-grid">
+      <p>
+        [Escribe aquí 2-3 párrafos breves: cómo empezaste a programar, qué tipo de problemas te gusta resolver,
+        y qué te diferencia — por ejemplo, tu forma de ajustar el alcance de un proyecto a presupuestos reales
+        en vez de vender sistemas sobredimensionados. Habla en primera persona y evita listar tecnologías aquí;
+        eso ya está en la ficha técnica.]
+      </p>
+      <div class="spec-sheet">
+        <div class="spec-row"><span class="k">Frontend</span><span class="v">Next.js, React</span></div>
+        <div class="spec-row"><span class="k">Backend</span><span class="v">Supabase, PostgreSQL</span></div>
+        <div class="spec-row"><span class="k">Infraestructura</span><span class="v">Cloudflare Pages, GitHub Actions</span></div>
+        <div class="spec-row"><span class="k">Idiomas</span><span class="v">Español, [otro]</span></div>
+        <div class="spec-row"><span class="k">Modalidad</span><span class="v">Remoto / Cochabamba</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="contact">
+      <h2>¿Tienes un proyecto en mente?</h2>
+      <div class="contact-links">
+        <a href="mailto:jhoncarlosg5@gmail.com">jhoncarlosg5@gmail.com</a>
+        <a href="https://www.linkedin.com/in/jhon-carlos-gonzales-a36050259" target="_blank">LinkedIn →</a>
+        <a href="https://github.com/jhondssss" target="_blank">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© <span id="year"></span> Jhon Carlos Porco Gonzales</span>
+    <span>Hecho con HTML y CSS, alojado en GitHub Pages</span>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
