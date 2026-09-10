@@ -143,6 +143,10 @@
     background:rgba(31,111,92,.12);color:var(--teal);
     border:1px solid rgba(31,111,92,.3);
   }
+  .status-stamp.progress{
+    background:rgba(201,138,44,.14);color:var(--amber);
+    border-color:rgba(201,138,44,.35);
+  }
   .project-body h3{font-size:1.3rem;margin-top:12px;font-weight:600;}
   .project-body p{color:var(--ink-soft);margin-top:10px;font-size:.98rem;max-width:56ch;}
   .stack-list{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;}
@@ -233,21 +237,76 @@
     </div>
 
     <div class="project-card">
-      <div class="project-media">
-        <img src="images/catalogo-b2b.jpg" alt="Sistema de catálogo B2B" style="width:100%;height:100%;object-fit:cover;"
-             onerror="this.outerHTML='<span>[Captura del catálogo aquí]</span>'">
+      <div class="project-media" style="padding:0;background:var(--paper-2);">
+        <svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;" role="img" aria-label="Ilustración del sistema de catálogo con stock y ofertas">
+          <rect width="500" height="360" fill="#EFEBE1"/>
+          <!-- barra de navegador -->
+          <rect x="0" y="0" width="500" height="34" fill="#F5F2E8"/>
+          <circle cx="20" cy="17" r="5" fill="#E2DED2"/>
+          <circle cx="38" cy="17" r="5" fill="#E2DED2"/>
+          <circle cx="56" cy="17" r="5" fill="#E2DED2"/>
+          <rect x="90" y="10" width="220" height="14" rx="7" fill="#E2DED2"/>
+          <!-- header del catálogo -->
+          <rect x="24" y="52" width="130" height="14" rx="3" fill="#201D17" opacity="0.75"/>
+          <rect x="24" y="72" width="90" height="9" rx="2" fill="#5B564A" opacity="0.5"/>
+          <rect x="380" y="52" width="96" height="26" rx="13" fill="#1F6F5C"/>
+          <text x="428" y="69" font-family="Inter, sans-serif" font-size="11" fill="#F5F2E8" text-anchor="middle" font-weight="600">+ Producto</text>
+
+          <!-- tarjeta de producto 1 -->
+          <g>
+            <rect x="24" y="100" width="140" height="120" rx="6" fill="#F5F2E8" stroke="#DED9CD"/>
+            <rect x="24" y="100" width="140" height="66" rx="6" fill="#DCD3BC"/>
+            <rect x="34" y="176" width="90" height="10" rx="2" fill="#201D17" opacity="0.7"/>
+            <rect x="34" y="192" width="50" height="8" rx="2" fill="#5B564A" opacity="0.45"/>
+            <rect x="118" y="188" width="34" height="16" rx="8" fill="#1F6F5C" opacity="0.15"/>
+            <text x="135" y="199" font-family="Inter, sans-serif" font-size="8" fill="#1F6F5C" text-anchor="middle" font-weight="600">Stock</text>
+          </g>
+
+          <!-- tarjeta de producto 2 (en oferta) -->
+          <g>
+            <rect x="180" y="100" width="140" height="120" rx="6" fill="#F5F2E8" stroke="#DED9CD"/>
+            <rect x="180" y="100" width="140" height="66" rx="6" fill="#E6D3AE"/>
+            <rect x="184" y="104" width="52" height="18" rx="9" fill="#C98A2C"/>
+            <text x="210" y="116" font-family="Inter, sans-serif" font-size="8" fill="#F5F2E8" text-anchor="middle" font-weight="700">OFERTA</text>
+            <rect x="190" y="176" width="90" height="10" rx="2" fill="#201D17" opacity="0.7"/>
+            <rect x="190" y="192" width="50" height="8" rx="2" fill="#5B564A" opacity="0.45"/>
+            <rect x="274" y="188" width="34" height="16" rx="8" fill="#1F6F5C" opacity="0.15"/>
+            <text x="291" y="199" font-family="Inter, sans-serif" font-size="8" fill="#1F6F5C" text-anchor="middle" font-weight="600">Stock</text>
+          </g>
+
+          <!-- tarjeta de producto 3 -->
+          <g>
+            <rect x="336" y="100" width="140" height="120" rx="6" fill="#F5F2E8" stroke="#DED9CD"/>
+            <rect x="336" y="100" width="140" height="66" rx="6" fill="#D7DED4"/>
+            <rect x="346" y="176" width="90" height="10" rx="2" fill="#201D17" opacity="0.7"/>
+            <rect x="346" y="192" width="50" height="8" rx="2" fill="#5B564A" opacity="0.45"/>
+            <rect x="430" y="188" width="34" height="16" rx="8" fill="#B23B3B" opacity="0.14"/>
+            <text x="447" y="199" font-family="Inter, sans-serif" font-size="8" fill="#B23B3B" text-anchor="middle" font-weight="600">Agotado</text>
+          </g>
+
+          <!-- segunda fila (parcial, sugiere más contenido) -->
+          <rect x="24" y="236" width="140" height="70" rx="6" fill="#F5F2E8" stroke="#DED9CD"/>
+          <rect x="180" y="236" width="140" height="70" rx="6" fill="#F5F2E8" stroke="#DED9CD"/>
+          <rect x="336" y="236" width="140" height="70" rx="6" fill="#F5F2E8" stroke="#DED9CD"/>
+          <rect x="0" y="290" width="500" height="70" fill="url(#fadeOut)"/>
+          <defs>
+            <linearGradient id="fadeOut" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#EFEBE1" stop-opacity="0"/>
+              <stop offset="1" stop-color="#EFEBE1" stop-opacity="1"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
       <div class="project-body">
-        <span class="status-stamp">● Entregado</span>
+        <span class="status-stamp">● Demo</span>
         <h3>Sistema de catálogo B2B para venta a clientes predefinidos</h3>
         <p>Un negocio que vende a través de vendedores necesitaba mostrarle a su cartera fija de clientes el stock y las ofertas actualizadas, sin depender de listas de WhatsApp desactualizadas. Se priorizó una Fase 1 (MVP) ajustada al presupuesto real del cliente, con la base preparada para crecer sin rehacer nada.</p>
         <div class="stack-list">
           <span>Next.js</span><span>Supabase</span><span>Cloudflare Pages</span><span>PostgreSQL</span>
         </div>
         <div class="project-links">
-          <a href="#" target="_blank">Ver proyecto en vivo</a>
-          <a href="#" target="_blank">Ver caso de estudio</a>
-          <a href="https://github.com/jhondssss" target="_blank">Ver código en GitHub</a>
+          <a href="https://jhondssss.github.io/Catalogo-B2B-NuevaTendencia/" target="_blank">Ver proyecto en vivo</a>
+          <a href="https://github.com/jhondssss/Catalogo-B2B-NuevaTendencia" target="_blank">Ver código en GitHub</a>
         </div>
       </div>
     </div>
@@ -302,10 +361,9 @@
     </div>
     <div class="about-grid">
       <p>
-        [Escribe aquí 2-3 párrafos breves: cómo empezaste a programar, qué tipo de problemas te gusta resolver,
-        y qué te diferencia — por ejemplo, tu forma de ajustar el alcance de un proyecto a presupuestos reales
-        en vez de vender sistemas sobredimensionados. Habla en primera persona y evita listar tecnologías aquí;
-        eso ya está en la ficha técnica.]
+        Ingeniero de Sistemas. Construyo sistemas web reales para negocios pequeños — catálogos, control de
+        stock, reservas — enfocado en resolver el problema concreto del negocio, con soluciones directas y
+        bien pensadas, no complejidad innecesaria.
       </p>
       <div class="spec-sheet">
         <div class="spec-row"><span class="k">Frontend</span><span class="v">Next.js, React</span></div>
